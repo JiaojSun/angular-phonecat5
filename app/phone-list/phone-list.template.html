@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+<!-- 添加了一个<input>标签，并且使用AngularJS的$filter函数来处理ngRepeat指令的输入。
+数据绑定：输入框和过滤器绑定"$ctrl.query"，当用户向输入框输入值时，过滤器可以马上获取该值。
+搜索功能：filter函数使用query的值过滤数据，得到匹配query的手机数组。迭代器会根据filter生成的手机数组来自动更新视图。 -->
+
+<!--       Search: <input ng-model="$ctrl.query" />
+ -->
+ Search:<input ng-model="$ctrl.query" />
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
